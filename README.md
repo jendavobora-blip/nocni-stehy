@@ -6,9 +6,12 @@ Zábavná multiplayerová hra, kde hráči střílí polštáře na své protivn
 
 ## 🎯 Jak hrát
 
+Stačí otevřít odkaz a hra se automaticky spustí! Není potřeba nic zadávat.
+
 - **Pohyb:** Klávesy W, A, S, D
 - **Střelba:** Klikni myší směrem, kam chceš vystřelit polštář
 - **Cíl:** Zasáhni ostatní hráče a získej body!
+- **Jméno:** Automaticky vygenerované při spuštění
 
 ## 🚀 Spuštění hry
 
@@ -41,11 +44,13 @@ Tato aplikace je připravena pro deployment na Azure Web Apps. GitHub Actions wo
 
 ## 🎮 Herní mechanika
 
-- Každý hráč má unikátní barvu
-- Střílej polštáře kliknutím myši
-- Zasáhni ostatní hráče pro získání bodů
-- Vyhrává hráč s nejvyšším skóre
-- Hra podporuje neomezený počet hráčů najednou
+- **Okamžité spuštění:** Hra se spustí automaticky bez nutnosti zadávání jména
+- **Automatická jména:** Každý hráč dostane náhodně vygenerované české jméno (např. "RychlýMedvěd42")
+- **Unikátní barvy:** Každý hráč má svou barvu
+- **Střelba polštáři:** Klikni myší pro vystřelení
+- **Bodování:** Zasáhni ostatní hráče pro získání bodů
+- **Žebříček:** Vyhrává hráč s nejvyšším skóre
+- **Neomezený počet hráčů:** Podporuje libovolný počet hráčů najednou
 
 ## 🛠️ Technologie
 

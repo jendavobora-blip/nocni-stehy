@@ -37,44 +37,6 @@ h1 {
     opacity: 0.9;
 }
 
-.username-prompt {
-    background: white;
-    border-radius: 15px;
-    padding: 40px;
-    text-align: center;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-}
-
-.username-prompt h2 {
-    margin-bottom: 20px;
-    color: #667eea;
-}
-
-#usernameInput {
-    width: 100%;
-    max-width: 300px;
-    padding: 12px;
-    font-size: 1.1rem;
-    border: 2px solid #667eea;
-    border-radius: 8px;
-    margin-bottom: 15px;
-}
-
-#startButton {
-    padding: 12px 40px;
-    font-size: 1.1rem;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: transform 0.2s;
-}
-
-#startButton:hover {
-    transform: scale(1.05);
-}
-
 .game-container {
     background: white;
     border-radius: 15px;

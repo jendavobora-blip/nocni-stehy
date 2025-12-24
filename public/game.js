@@ -19,26 +19,22 @@ window.addEventListener('DOMContentLoaded', () => {
     canvas = document.getElementById('gameCanvas');
     ctx = canvas.getContext('2d');
 
-    const usernameInput = document.getElementById('usernameInput');
-    const startButton = document.getElementById('startButton');
-
-    startButton.addEventListener('click', startGame);
-    usernameInput.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') {
-            startGame();
-        }
-    });
+    // Auto-start game with generated username
+    startGame();
 });
 
-function startGame() {
-    const username = document.getElementById('usernameInput').value.trim();
-    if (!username) {
-        alert('Prosím zadej své jméno!');
-        return;
-    }
+function generateUsername() {
+    const adjectives = ['Rychlý', 'Silný', 'Chytrý', 'Divoký', 'Tichý', 'Veselý', 'Odvážný', 'Mazaný'];
+    const nouns = ['Medvěd', 'Zajíc', 'Liška', 'Vlk', 'Jelen', 'Sokol', 'Drak', 'Lev'];
+    const randomAdj = adjectives[Math.floor(Math.random() * adjectives.length)];
+    const randomNoun = nouns[Math.floor(Math.random() * nouns.length)];
+    const randomNum = Math.floor(Math.random() * 100);
+    return `${randomAdj}${randomNoun}${randomNum}`;
+}
 
-    document.getElementById('usernamePrompt').style.display = 'none';
-    document.getElementById('gameContainer').style.display = 'block';
+function startGame() {
+    const username = generateUsername();
+    
     document.getElementById('playerName').textContent = username;
 
     initSocket(username);
