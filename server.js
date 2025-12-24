@@ -16,6 +16,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 const players = {};
 const pillows = {};
 let pillowIdCounter = 0;
+let playerIdCounter = 0;
 
 const GAME_WIDTH = 800;
 const GAME_HEIGHT = 600;
@@ -29,13 +30,14 @@ io.on('connection', (socket) => {
   console.log(`Player connected: ${socket.id}`);
 
   // Create new player
+  playerIdCounter++;
   players[socket.id] = {
     id: socket.id,
     x: Math.random() * (GAME_WIDTH - PLAYER_SIZE),
     y: Math.random() * (GAME_HEIGHT - PLAYER_SIZE),
     color: getRandomColor(),
     score: 0,
-    username: `Player${Object.keys(players).length}`
+    username: `Player${playerIdCounter}`
   };
 
   // Send current game state to new player
@@ -152,9 +154,10 @@ setInterval(() => {
 }, 1000 / 30); // 30 FPS
 
 function checkCollision(pillow, player) {
-  return pillow.x >= player.x && 
+  // Rectangle-to-rectangle collision with pillow dimensions
+  return pillow.x + PILLOW_SIZE >= player.x && 
          pillow.x <= player.x + PLAYER_SIZE &&
-         pillow.y >= player.y && 
+         pillow.y + PILLOW_SIZE >= player.y && 
          pillow.y <= player.y + PLAYER_SIZE;
 }
 

@@ -10,6 +10,10 @@ let gameHeight;
 let keys = {};
 let myScore = 0;
 
+// Constants (should match server)
+const PLAYER_SIZE = 40;
+const PILLOW_SIZE = 20;
+
 // Initialize game
 window.addEventListener('DOMContentLoaded', () => {
     canvas = document.getElementById('gameCanvas');
@@ -126,8 +130,8 @@ function setupControls() {
 
         if (players[myId]) {
             const player = players[myId];
-            const playerCenterX = player.x + 20;
-            const playerCenterY = player.y + 20;
+            const playerCenterX = player.x + PLAYER_SIZE / 2;
+            const playerCenterY = player.y + PLAYER_SIZE / 2;
 
             // Calculate direction
             const dx = mouseX - playerCenterX;
@@ -198,7 +202,7 @@ function render() {
         
         ctx.fillStyle = isFlashing ? '#ffffff' : player.color;
         ctx.beginPath();
-        ctx.arc(player.x + 20, player.y + 20, 20, 0, Math.PI * 2);
+        ctx.arc(player.x + PLAYER_SIZE / 2, player.y + PLAYER_SIZE / 2, PLAYER_SIZE / 2, 0, Math.PI * 2);
         ctx.fill();
 
         // Draw border for current player
@@ -206,7 +210,7 @@ function render() {
             ctx.strokeStyle = '#FFD700';
             ctx.lineWidth = 3;
             ctx.beginPath();
-            ctx.arc(player.x + 20, player.y + 20, 22, 0, Math.PI * 2);
+            ctx.arc(player.x + PLAYER_SIZE / 2, player.y + PLAYER_SIZE / 2, PLAYER_SIZE / 2 + 2, 0, Math.PI * 2);
             ctx.stroke();
         }
 
@@ -214,13 +218,13 @@ function render() {
         ctx.fillStyle = 'white';
         ctx.font = '12px Arial';
         ctx.textAlign = 'center';
-        ctx.fillText(player.username, player.x + 20, player.y - 10);
+        ctx.fillText(player.username, player.x + PLAYER_SIZE / 2, player.y - 10);
 
         // Draw score
         if (player.score > 0) {
             ctx.fillStyle = '#FFD700';
             ctx.font = 'bold 10px Arial';
-            ctx.fillText(`⭐${player.score}`, player.x + 20, player.y + 55);
+            ctx.fillText(`⭐${player.score}`, player.x + PLAYER_SIZE / 2, player.y + PLAYER_SIZE + 15);
         }
     }
 
@@ -239,12 +243,12 @@ function render() {
         ctx.save();
         ctx.translate(pillow.x, pillow.y);
         ctx.rotate(Math.atan2(pillow.velocityY, pillow.velocityX));
-        ctx.fillRect(-10, -10, 20, 20);
+        ctx.fillRect(-PILLOW_SIZE / 2, -PILLOW_SIZE / 2, PILLOW_SIZE, PILLOW_SIZE);
         
         // Add pillow texture
         ctx.fillStyle = 'rgba(255, 255, 255, 0.3)';
-        ctx.fillRect(-8, -8, 6, 6);
-        ctx.fillRect(2, 2, 6, 6);
+        ctx.fillRect(-PILLOW_SIZE / 2 + 2, -PILLOW_SIZE / 2 + 2, PILLOW_SIZE / 3, PILLOW_SIZE / 3);
+        ctx.fillRect(PILLOW_SIZE / 6, PILLOW_SIZE / 6, PILLOW_SIZE / 3, PILLOW_SIZE / 3);
         
         ctx.restore();
     }
