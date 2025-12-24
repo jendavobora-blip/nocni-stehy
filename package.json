@@ -1,0 +1,27 @@
+{
+  "name": "nocni-stehy",
+  "version": "1.0.0",
+  "description": "🎮 Noční Stehy - Multiplayer pillow shooter. Bulánci 2025 by Jan Vobora",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "keywords": [
+    "game",
+    "multiplayer",
+    "socket.io",
+    "pillow",
+    "shooter"
+  ],
+  "author": "Jan Vobora",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "socket.io": "^4.6.1"
+  },
+  "engines": {
+    "node": ">=20.x"
+  }
+}

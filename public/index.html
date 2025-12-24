@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎮 Noční Stehy - Multiplayer Pillow Shooter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎮 Noční Stehy</h1>
+            <p class="subtitle">Multiplayer Pillow Shooter - Bulánci 2025</p>
+        </header>
+
+        <div id="usernamePrompt" class="username-prompt">
+            <h2>Zadej své jméno</h2>
+            <input type="text" id="usernameInput" placeholder="Tvoje jméno" maxlength="15">
+            <button id="startButton">Začít hrát</button>
+        </div>
+
+        <div id="gameContainer" class="game-container" style="display: none;">
+            <div class="game-info">
+                <div class="info-panel">
+                    <span id="playerName">Hráč</span>
+                    <span id="playerScore">Skóre: 0</span>
+                </div>
+                <div class="controls-info">
+                    🎯 WASD - Pohyb | 🖱️ Klik - Střelba
+                </div>
+            </div>
+
+            <canvas id="gameCanvas" width="800" height="600"></canvas>
+
+            <div class="players-list">
+                <h3>Hráči</h3>
+                <div id="playersList"></div>
+            </div>
+        </div>
+
+        <div class="instructions">
+            <h3>Jak hrát:</h3>
+            <ul>
+                <li>Pohybuj se pomocí kláves <strong>W, A, S, D</strong></li>
+                <li>Střílej polštáře kliknutím myši směrem, kam chceš vystřelit</li>
+                <li>Zasáhni ostatní hráče a získej body!</li>
+                <li>Vyhrává hráč s nejvyšším skóre</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>
