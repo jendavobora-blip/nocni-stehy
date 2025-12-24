@@ -13,6 +13,7 @@ let myScore = 0;
 // Constants (should match server)
 const PLAYER_SIZE = 40;
 const PILLOW_SIZE = 20;
+const USERNAME_NUMBER_RANGE = 100;
 
 // Initialize game
 window.addEventListener('DOMContentLoaded', () => {
@@ -28,7 +29,7 @@ function generateUsername() {
     const nouns = ['Medvěd', 'Zajíc', 'Liška', 'Vlk', 'Jelen', 'Sokol', 'Drak', 'Lev'];
     const randomAdj = adjectives[Math.floor(Math.random() * adjectives.length)];
     const randomNoun = nouns[Math.floor(Math.random() * nouns.length)];
-    const randomNum = Math.floor(Math.random() * 100);
+    const randomNum = Math.floor(Math.random() * USERNAME_NUMBER_RANGE);
     return `${randomAdj}${randomNoun}${randomNum}`;
 }
 
